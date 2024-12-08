@@ -10,11 +10,11 @@ class HyperSchoolTestRunner(HyperSchoolTest):
         # 1 task
         HyperSchoolTest.check_create_courses,
         # 2 task
-        # HyperSchoolTest.check_main_page_header,
-        # HyperSchoolTest.check_main_search_courses,
-        # HyperSchoolTest.check_link_to_course,
-        # HyperSchoolTest.check_main_courses_count,
-        # # 3 task
+        HyperSchoolTest.check_main_page_header,
+        HyperSchoolTest.check_main_search_courses,
+        HyperSchoolTest.check_link_to_course,
+        HyperSchoolTest.check_main_courses_count,
+        # 3 task
         # HyperSchoolTest.check_links_course_page,
         # HyperSchoolTest.check_course_info_displayed,
         # HyperSchoolTest.check_links_teacher_page,
