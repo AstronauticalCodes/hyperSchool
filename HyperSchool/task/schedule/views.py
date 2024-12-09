@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.views import View
-from .models import Course
+from .models import Course, Teacher
 from .forms import SearchForm
 # Create your views here.
 
@@ -74,3 +74,13 @@ class CourseDetailsView(View):
         course = self.model.objects.filter(id=pk).first()
         # print(course.teacher.all())
         return render(request, self.template_name, context={'course': course, 'teachers': course.teacher.all()})
+
+
+class TeacherDetailsView(View):
+    template_name = 'schedule/teacher_details.html'
+    model = Teacher
+
+    def get(self, request, pk, *args, **kwargs):
+        pk = self.kwargs['pk']
+        teacher = self.model.objects.filter(id=pk).first()
+        return render(request, self.template_name, context={'teacher': teacher})
