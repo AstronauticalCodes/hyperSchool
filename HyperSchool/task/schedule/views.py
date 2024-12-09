@@ -63,3 +63,14 @@ def MainPage(request):
         found_courses = Course.objects.filter(title__icontains=query)
 
     return render(request, 'schedule/main.html', context={'form': form, 'courses': found_courses})
+
+
+class CourseDetailsView(View):
+    template_name = "schedule/course_details.html"
+    model = Course
+
+    def get(self, request, pk, *args, **kwargs):
+        pk = self.kwargs['pk']
+        course = self.model.objects.filter(id=pk).first()
+        # print(course.teacher.all())
+        return render(request, self.template_name, context={'course': course, 'teachers': course.teacher.all()})

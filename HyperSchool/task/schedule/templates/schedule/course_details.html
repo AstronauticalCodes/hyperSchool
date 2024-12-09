@@ -10,8 +10,8 @@
 <p><b>Total price: $</b>{{ course.price }}</p>
 <br>
 <h2>Teachers of the course:</h2>
-{% for teacher in teachers %}
-  <p><a href="{ url 'teacher_details' pk=teacher.id }">teacher</a></p>
-{% endfor %}
 
-<p><a href="../">Go back to the list of courses</a></p>
+{% for teacher in teachers %}
+  <p><a href="{ url 'teacher_details' pk=teacher.id }">{{ teacher }}</a></p>
+{% endfor %}
+<p><a href="{% url 'main' %}">Go back to the list of courses</a></p>
