@@ -7,6 +7,9 @@ class Teacher(models.Model):
     age = models.IntegerField()
     about = models.TextField(max_length=1000)
 
+    def __str__(self):
+        return f"{self.name} {self.surname}"
+
 
 class Course(models.Model):
     title = models.CharField(max_length=255)

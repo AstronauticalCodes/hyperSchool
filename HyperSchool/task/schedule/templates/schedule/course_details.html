@@ -1,0 +1,17 @@
+<h4>Feel free to choose any course</h4>
+<h4>you are interested in!</h4>
+<h4>Upgrade your professional skills</h4>
+<h4>with our school!</h4>
+
+<h3>Name of the program: {{ course.title }}</h3>
+<br>
+<p><b>Short description of the course: </b>{{ course.info }}</p>
+<p><b>Course duration: </b>{{ course.duration_months }} months</p>
+<p><b>Total price: $</b>{{ course.price }}</p>
+<br>
+<h2>Teachers of the course:</h2>
+{% for teacher in teachers %}
+  <p><a href="{ url 'teacher_details' pk=teacher.id }">teacher</a></p>
+{% endfor %}
+
+<p><a href="../">Go back to the list of courses</a></p>
