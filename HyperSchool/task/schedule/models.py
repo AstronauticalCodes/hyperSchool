@@ -8,19 +8,25 @@ class Teacher(models.Model):
     about = models.TextField(max_length=1000)
 
 
-class Coursera(models.Model):
+class Course(models.Model):
     title = models.CharField(max_length=255)
     info = models.TextField(max_length=1000)
     duration_months = models.IntegerField()
     price = models.IntegerField()
     teacher = models.ManyToManyField(Teacher)
 
+    def get_absolute_url(self):
+        return f'../course_details/{self.id}'
+
+    def __str__(self):
+        return f"{self.title}"
+
 
 class Student(models.Model):
     name = models.CharField(max_length=60)
     surname = models.CharField(max_length=40)
     age = models.IntegerField()
-    course = models.ManyToManyField(Coursera)
+    course = models.ManyToManyField(Course)
 
 
 # region broCodeFor Etherom

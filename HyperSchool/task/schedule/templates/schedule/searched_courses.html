@@ -1,0 +1,5 @@
+<p>{{ courses|length }} courses</p>
+
+{% for course in courses %}
+    <a href="/schedule/course_details/{{ course.id }}">{{ course }}</a><br>
+{% endfor %}

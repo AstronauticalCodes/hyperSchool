@@ -1,1 +1,17 @@
-<p>This is main page!</p>
+<h2>HyperSchool</h2>
+<p>Hi! Welcome to the site of online HyperSchool!<br>
+Feel free to choose any speciality you are interested in!</p>
+
+<form method="post" action="{% url 'main' %}">
+    {% csrf_token %}
+<!--    {{ form.as_p }}-->
+    <input type="text" name="query" class="search">
+    <button type="submit">search</button>
+</form>
+
+{% if courses|length %}
+    <p>{{ courses|length }} courses</p>
+    {% for course in courses %}
+        <p><a href="{{ course.get_absolute_url }}">{{ course.title }}</a></p>
+    {% endfor %}
+{% endif %}
