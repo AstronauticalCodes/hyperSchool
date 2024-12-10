@@ -22,6 +22,6 @@ urlpatterns = [
     path('', views.index),
     path('schedule/', include('schedule.urls')),
     path('login/', views.HyperSchoolLoginView.as_view(), name='login'),
-    # path('signup/', views.HyperSchoolSignUpView.as_view(), name='signup'),
-    # path('logout/', views.LogOut, name='logout'),
+    path('signup/', views.HyperSchoolSignUpView.as_view(), name='signup'),
+    path('logout/', views.LogOut, name='logout'),
 ]

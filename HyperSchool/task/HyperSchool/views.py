@@ -49,9 +49,9 @@ def index(request):
 #             return HttpResponse("<h2>not vaild</h2>")
 #
 #
-# def LogOut(request):
-#     logout(request)
-#     return redirect('schedule/main')
+def LogOut(request):
+    logout(request)
+    return redirect('../schedule/main')
 
 
 # class HyperSchoolLoginView(FormView):
@@ -66,6 +66,26 @@ def index(request):
 #         if user is not None:
 #             login(self.request, user)
 #         return super().form_valid(form)
+
+
+class HyperSchoolSignUpView(View):
+    template_name = 'signup.html'
+    form = SignUpForm
+
+    def get(self, request, *args, **kwargs):
+        form = self.form()
+        return render(request, self.template_name, context={'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form(request.POST)
+        print(form.is_valid)
+        if form.is_valid():
+            form.save()
+            return redirect('/schedule/main')
+        else:
+            print('not valid')
+            return HttpResponse("<h2>Not Valid</h2>")
+        # return render(request, self.template_name, {'form': form})
 
 
 class HyperSchoolLoginView(LoginView):

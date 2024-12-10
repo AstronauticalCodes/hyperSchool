@@ -35,7 +35,8 @@ def MainPage(request):
     if request.method == 'GET':
         print(request.user.is_authenticated)
     if request.user.is_authenticated:
-        print(request.user.name)
+        # print(request.user.name)
+        pass
     if request.method == 'POST' and form.is_valid():
         query = form.cleaned_data.get('query')
         found_courses = Course.objects.filter(title__icontains=query)
