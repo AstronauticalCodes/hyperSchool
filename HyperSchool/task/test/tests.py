@@ -26,7 +26,7 @@ class HyperSchoolTestRunner(HyperSchoolTest):
         HyperSchoolTest.check_signup,
         HyperSchoolTest.check_login,
         # 6 task
-        # HyperSchoolTest.check_list_of_students
+        HyperSchoolTest.check_list_of_students
 
     ]
 
