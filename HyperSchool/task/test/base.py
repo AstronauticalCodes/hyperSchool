@@ -47,6 +47,7 @@ INITIAL_STUDENT_COURSES = [
     (6, 6, 2),
 ]
 
+
 class HyperSchoolTest(DjangoTest):
     use_database = True
     H2_PATTERN = '<h2>(.+?)</h2>'
@@ -313,8 +314,8 @@ class HyperSchoolTest(DjangoTest):
 
         if not is_main_header:
             return CheckResult.wrong(
-                    f'Course_details page should contain information about course'
-                )
+                f'Course_details page should contain information about course'
+            )
 
         return CheckResult.correct()
 
@@ -509,7 +510,6 @@ class HyperSchoolTest(DjangoTest):
             return CheckResult.wrong('Cannot login: problems with form')
         except urllib.error.URLError as err:
             return CheckResult.wrong(f'Cannot login: {err.reason}')
-
 
     # stage 6
     def check_list_of_students(self):

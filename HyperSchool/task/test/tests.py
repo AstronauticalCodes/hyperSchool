@@ -21,10 +21,10 @@ class HyperSchoolTestRunner(HyperSchoolTest):
         # 4 task
         HyperSchoolTest.check_link_add_to_course,
         # 5 task
-        # HyperSchoolTest.check_main_page_login_link,
-        # HyperSchoolTest.check_main_page_signup_link,
-        # HyperSchoolTest.check_signup,
-        # HyperSchoolTest.check_login,
+        HyperSchoolTest.check_main_page_login_link,
+        HyperSchoolTest.check_main_page_signup_link,
+        HyperSchoolTest.check_signup,
+        HyperSchoolTest.check_login,
         # 6 task
         # HyperSchoolTest.check_list_of_students
 
