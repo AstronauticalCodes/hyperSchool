@@ -31,6 +31,8 @@ class Student(models.Model):
     age = models.IntegerField()
     course = models.ManyToManyField(Course)
 
+    def __str__(self):
+        return f'{self.name} {self.surname}'
 
 # region broCodeFor Etherom
 class MyCourse(models.Model):
