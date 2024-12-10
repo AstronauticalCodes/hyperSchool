@@ -5,7 +5,7 @@ from django.views.generic import CreateView
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 
-from HyperSchool.task.schedule.forms import SignUpForm
+from schedule.forms import SignUpForm
 
 
 def index(request):
@@ -17,7 +17,7 @@ def index(request):
 
 class HyperSchoolLoginView(LoginView):
     template_name = "login.html"
-    success_url = 'schedule/main'
+    success_url = '/'
     form = AuthenticationForm
 
     def get(self, request, *args, **kwargs):
