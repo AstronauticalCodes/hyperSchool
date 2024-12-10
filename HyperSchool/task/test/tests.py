@@ -19,7 +19,7 @@ class HyperSchoolTestRunner(HyperSchoolTest):
         HyperSchoolTest.check_course_info_displayed,
         HyperSchoolTest.check_links_teacher_page,
         # 4 task
-        # HyperSchoolTest.check_link_add_to_course,
+        HyperSchoolTest.check_link_add_to_course,
         # 5 task
         # HyperSchoolTest.check_main_page_login_link,
         # HyperSchoolTest.check_main_page_signup_link,
