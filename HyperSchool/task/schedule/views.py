@@ -1,8 +1,10 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.views import View
-from .models import Course, Teacher
-from .forms import SearchForm
+from .models import Course, Teacher, Student
+from .forms import SearchForm, StudentForm
+
+
 # Create your views here.
 
 
@@ -84,3 +86,22 @@ class TeacherDetailsView(View):
         pk = self.kwargs['pk']
         teacher = self.model.objects.filter(id=pk).first()
         return render(request, self.template_name, context={'teacher': teacher})
+
+
+class AddCourseView(View):
+    template_name = 'schedule/add_course.html'
+    model = Student
+    form = StudentForm
+
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, context={'form': self.form})
+
+
+    def post(self, request, *args, **kwargs):
+        form = self.form(request.POST)
+        if form.is_valid():
+            form.save()
+            print('hello passd')
+
+        return redirect('./')
