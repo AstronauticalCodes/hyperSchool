@@ -5,14 +5,10 @@ from .models import Course, Teacher, Student
 from .forms import SearchForm, StudentForm
 
 
-# Create your views here.
-
-
 def index(request):
     return HttpResponse(f'''
     <a href="/schedule/main"><button>Go to main page</button></a>
 ''')
-    # return redirect('schedule/main')
 
 
 class MainView(View):
@@ -20,7 +16,6 @@ class MainView(View):
     model = Course
 
     def get(self, request, *args, **kwargs):
-        # print(courses, 'jello')
         try:
             search = request.GET['search']
             all_courses = self.model.objects.all()
@@ -34,24 +29,7 @@ class MainView(View):
         return render(request, self.template_name, context={"courses": found_courses, "search_found": search_found})
 
 
-    def post(self, request, *args, **kwargs):
-        # return render(request, self.template_name, context={'search_found': search_found, 'courses': found_courses})
-        pass
-
-
 def MainPage(request):
-    # query = request.GET.get('query')
-    # query = None
-    found_courses = []
-    # if 'query' in request.GET:
-    #     form = SearchForm(request.GET)
-    #     if form.is_valid():
-    #         query = form.cleaned_data['query']
-    #         found_courses = Course.objects.filter(title__icontains=query)
-    #
-    # else:
-    #     form = SearchForm()
-
     form = SearchForm(request.POST or None)
     found_courses = []
     if request.method == 'POST' and form.is_valid():
@@ -96,8 +74,4 @@ class AddCourseView(View):
         form = self.form(request.POST)
         if form.is_valid():
             form.save()
-            print(request.POST)
-            print(self.model.objects.all().first().name)
-            print('hello passd')
-
         return redirect('./')
