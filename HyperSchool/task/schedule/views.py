@@ -32,11 +32,7 @@ class MainView(View):
 def MainPage(request):
     form = SearchForm(request.POST or None)
     found_courses = []
-    if request.method == 'GET':
-        print(request.user.is_authenticated)
-    if request.user.is_authenticated:
-        # print(request.user.name)
-        pass
+
     if request.method == 'POST' and form.is_valid():
         query = form.cleaned_data.get('query')
         found_courses = Course.objects.filter(title__icontains=query)
@@ -69,10 +65,8 @@ class AddCourseView(View):
     model = Student
     form = StudentForm
 
-
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, context={'form': self.form})
-
 
     def post(self, request, *args, **kwargs):
         form = self.form(request.POST)

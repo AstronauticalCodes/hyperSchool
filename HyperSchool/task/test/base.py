@@ -541,3 +541,4 @@ class HyperSchoolTest(DjangoTest):
             return CheckResult.wrong('Check your list of student.')
 
         return CheckResult.correct()
+
