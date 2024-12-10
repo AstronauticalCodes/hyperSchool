@@ -19,12 +19,6 @@ class MainView(View):
     template_name = "schedule/main.html"
     model = Course
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #
-    #     pass
-
-
     def get(self, request, *args, **kwargs):
         # print(courses, 'jello')
         try:
@@ -102,6 +96,8 @@ class AddCourseView(View):
         form = self.form(request.POST)
         if form.is_valid():
             form.save()
+            print(request.POST)
+            print(self.model.objects.all().first().name)
             print('hello passd')
 
         return redirect('./')

@@ -1,6 +1,6 @@
-<h2>Apply to course</h2>
+<h2>Apply to the course</h2>
 <form method="post">
     {% csrf_token %}
-    {% form.as_p %}
+    <table>{{ form.as_table }}</table>
     <input type="submit" name="Submit">
 </form>
