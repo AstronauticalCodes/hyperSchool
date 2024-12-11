@@ -15,6 +15,11 @@
   <p><a href="{% url 'teacher_details' pk=0 %}{{ teacher.id }}">{{ teacher }}</a></p>
 {% endfor %}
 
+<h2>Already studying:</h2>
+{% for student in students %}
+  <p>{{ student }}</p>
+{% endfor %}
+
 <div style="border: 2px solid #000; padding: 10px; width: 300px; margin: 20px auto;">
   <h2>Join us!</h2>
   <a href="{% url 'add_course' %}"><p>Apply to the course {{ course.title }}</p></a>

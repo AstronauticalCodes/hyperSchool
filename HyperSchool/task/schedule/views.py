@@ -47,7 +47,8 @@ class CourseDetailsView(View):
     def get(self, request, pk, *args, **kwargs):
         pk = self.kwargs['pk']
         course = self.model.objects.filter(id=pk).first()
-        return render(request, self.template_name, context={'course': course, 'teachers': course.teacher.all()})
+        students = course.student_set.all()
+        return render(request, self.template_name, context={'course': course, 'teachers': course.teacher.all(), 'students': students})
 
 
 class TeacherDetailsView(View):
